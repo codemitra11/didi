@@ -1,0 +1,285 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>दीदी के नाम</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Hind:wght@400;500;600&family=Kalam:wght@300;400;700&display=swap">
+<style>
+/* Layout: left-set hero with a letter envelope on the right, then a wide paper letter, three lessons, and sealed notes. */
+:root {
+  --bg: #F1E8F0;
+  --paper: #FFFDFB;
+  --ink: #2B1233;
+  --muted: #6C5772;
+  --accent: #0F6E6A;
+  --seal: #C8476B;
+  --line: #DCCBD9;
+  --env-back: #E3D3E1;
+  --env-front: #EBDDE9;
+  --env-flap: #D9C4D7;
+  --shadow: rgba(43, 18, 51, 0.16);
+  --f-display: "Tiro Devanagari Hindi", "Noto Serif Devanagari", Georgia, serif;
+  --f-body: "Hind", "Noto Sans Devanagari", system-ui, sans-serif;
+  --f-hand: "Kalam", "Noto Sans Devanagari", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1A1024; --paper: #2A1B38; --ink: #F3E7F2; --muted: #B7A3BD;
+    --accent: #59C9BF; --seal: #E8708F; --line: #43304F;
+    --env-back: #35244A; --env-front: #3E2B55; --env-flap: #4A3566; --shadow: rgba(0, 0, 0, 0.45);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1A1024; --paper: #2A1B38; --ink: #F3E7F2; --muted: #B7A3BD;
+  --accent: #59C9BF; --seal: #E8708F; --line: #43304F;
+  --env-back: #35244A; --env-front: #3E2B55; --env-flap: #4A3566; --shadow: rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.75;
+  padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1020px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.25; }
+p { margin: 0; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; padding-block: 28px 56px; }
+.kicker { color: var(--accent); font-weight: 600; letter-spacing: 0.08em; font-size: 0.9rem; }
+.hero h1 { font-size: clamp(2.3rem, 6.2vw, 4.1rem); margin-block: 14px 18px; }
+.hero h1 em { font-style: italic; color: var(--seal); }
+.hero p.lede { color: var(--muted); max-width: 30em; font-size: 1.08rem; }
+.btn {
+  display: inline-block; margin-top: 26px; padding: 12px 24px; border: 1.5px solid var(--accent);
+  color: var(--accent); background: transparent; border-radius: 999px; font: 600 1rem var(--f-body);
+  text-decoration: none; cursor: pointer; transition: background 0.2s, color 0.2s;
+}
+.btn:hover { background: var(--accent); color: var(--bg); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* envelope */
+.stage { perspective: 900px; display: flex; justify-content: center; padding-top: 80px; min-width: 0; }
+.env { position: relative; width: min(100%, 330px); aspect-ratio: 11 / 7.6; cursor: pointer; border-radius: 6px; }
+.env > * { position: absolute; left: 0; width: 100%; }
+.env-back { inset: 0; height: 100%; background: var(--env-back); border-radius: 6px; box-shadow: 0 22px 40px -18px var(--shadow); }
+.env-paper {
+  top: 6%; left: 7%; width: 86%; height: 88%; background: var(--paper); border: 1px solid var(--line);
+  border-radius: 4px; padding: 16px 18px; font-family: var(--f-hand); font-size: 1.05rem; line-height: 1.6;
+  color: var(--ink); transition: transform 0.9s cubic-bezier(.2,.7,.2,1) 0.35s; z-index: 2;
+}
+.env-paper small { display: block; color: var(--muted); font-size: 0.82rem; margin-top: 6px; }
+.env-front {
+  inset: 0; height: 100%; background: var(--env-front); z-index: 3; border-radius: 6px;
+  clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+}
+.env-flap {
+  top: 0; height: 58%; background: var(--env-flap); z-index: 4; transform-origin: top center;
+  clip-path: polygon(0 0, 100% 0, 50% 100%); transition: transform 0.7s ease, z-index 0s 0.35s;
+  border-radius: 6px 6px 0 0;
+}
+.seal {
+  top: 58%; left: 50%; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%;
+  background: var(--seal); color: #fff; display: grid; place-items: center; font-size: 1.2rem; z-index: 5;
+  box-shadow: 0 4px 10px var(--shadow); transition: opacity 0.3s, transform 0.3s;
+}
+.env.open .env-flap { transform: rotateX(180deg); z-index: 1; }
+.env.open .seal { opacity: 0; transform: scale(0.4); }
+.env.open .env-paper { transform: translateY(-62%); }
+.hint { text-align: center; color: var(--muted); font-size: 0.88rem; margin-top: 18px; }
+
+/* letter page */
+#page:not([hidden]) { display: block; animation: pageIn 0.7s ease both; }
+@keyframes pageIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.back {
+  margin-bottom: 22px; padding: 8px 18px; border: 1.5px solid var(--accent); color: var(--accent); background: transparent;
+  border-radius: 999px; font: 600 0.95rem var(--f-body); cursor: pointer; transition: background 0.2s, color 0.2s;
+}
+.back:hover { background: var(--accent); color: var(--bg); }
+
+/* the letter */
+.letter {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 10px;
+  padding: clamp(24px, 6vw, 64px); box-shadow: 0 30px 50px -34px var(--shadow);
+  background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 41px, var(--line) 41px, var(--line) 42px);
+  background-position: 0 28px;
+}
+.letter-inner { max-width: 36em; margin-inline: auto; font-family: var(--f-hand); font-size: clamp(1.1rem, 2.6vw, 1.3rem); line-height: 42px; }
+.letter-inner p + p { margin-top: 42px; }
+.letter .to { font-family: var(--f-display); font-size: 1.7rem; line-height: 42px; color: var(--seal); }
+.sign { margin-top: 42px; text-align: right; }
+.sign span { display: block; font-family: var(--f-display); font-style: italic; font-size: 1.5rem; color: var(--accent); }
+
+/* lessons */
+.sec { margin-top: 84px; }
+.sec h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); margin-bottom: 8px; }
+.sec .sub { color: var(--muted); max-width: 34em; }
+.lessons { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px; margin-top: 32px; }
+.lesson { border-top: 2px solid var(--accent); padding-top: 14px; min-width: 0; }
+.lesson h3 { font-size: 1.5rem; color: var(--accent); }
+.lesson p { margin-top: 6px; color: var(--muted); }
+
+/* sealed notes */
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 30px; align-items: start; }
+.note { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; min-width: 0; overflow: hidden; }
+.note button {
+  width: 100%; text-align: left; background: none; border: 0; color: var(--ink); cursor: pointer;
+  padding: 18px 20px; display: flex; gap: 14px; align-items: center; font: 500 1.05rem var(--f-body);
+}
+.note .dot { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--seal); color: #fff; display: grid; place-items: center; font-size: 0.95rem; }
+.note .when { font-family: var(--f-display); font-size: 1.2rem; }
+.note small { display: block; color: var(--muted); font-size: 0.82rem; line-height: 1.3; }
+.note .body { padding: 0 20px 20px; font-family: var(--f-hand); font-size: 1.12rem; line-height: 1.8; }
+
+.foot { margin-top: 84px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 8px; }
+  .stage { padding-top: 70px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+</style>
+
+<div class="wrap">
+  <header class="hero" id="home">
+    <div>
+      <div class="kicker">सिर्फ़ तुम्हारे लिए</div>
+      <h1>दीदी के नाम<br>एक <em>चिट्ठी</em></h1>
+      <p class="lede">कोई त्योहार नहीं, कोई तारीख़ नहीं। बस इसलिए कि तुम मेरी दीदी हो, और कुछ बातें सीधे कह देनी चाहिए।</p>
+      <button type="button" class="btn" id="openBtn">चिट्ठी खोलो</button>
+    </div>
+    <div>
+      <div class="stage">
+        <div class="env" id="env" role="button" tabindex="0" aria-pressed="false" aria-label="लिफ़ाफ़ा खोलो या बंद करो">
+          <div class="env-back"></div>
+          <div class="env-paper">प्यारी दीदी,<small>तुम्हारा छोटा भाई</small></div>
+          <div class="env-front"></div>
+          <div class="env-flap"></div>
+          <div class="seal">♥</div>
+        </div>
+      </div>
+      <p class="hint" id="hint">लिफ़ाफ़े को छुओ</p>
+    </div>
+  </header>
+
+  <main id="page" hidden>
+    <button type="button" class="back" id="back">← लिफ़ाफ़े पर वापस</button>
+    <article class="letter" id="chitthi">
+      <div class="letter-inner">
+        <p class="to">प्यारी दीदी,</p>
+        <p>आज कोई त्योहार नहीं है, कोई जन्मदिन भी नहीं। फिर भी मैंने सोचा कि कुछ ऐसा बनाऊँ जो सिर्फ़ तुम्हारे लिए हो, क्योंकि कुछ बातें कहने के लिए किसी ख़ास दिन का इंतज़ार नहीं करना चाहिए।</p>
+        <p>हम भाई-बहन अक्सर सीधे नहीं कहते कि एक-दूसरे को कितना मानते हैं। तुम डाँटकर प्यार जताती हो और मैं मज़ाक में बात टाल देता हूँ। पर आज मैं सीधे कहना चाहता हूँ।</p>
+        <p>तुम मेरी पहली दोस्त हो, मेरी पहली टीचर, और वो इंसान जिसके सामने मुझे कभी कुछ साबित नहीं करना पड़ा। जब भी मैं लड़खड़ाया, तुमने बिना सवाल किए हाथ थाम लिया।</p>
+        <p>तुमने मुझे बहुत कुछ सिखाया, कुछ बोलकर और उससे ज़्यादा अपने करके दिखाकर। सब्र रखना, दूसरों का ख़याल रखना और मुश्किल में भी मुस्कुराना, ये सब मैंने तुम्हें देखकर सीखा है।</p>
+        <p>अगर कभी मैंने तुम्हें चिढ़ाया हो, तंग किया हो, या ठीक से शुक्रिया न कहा हो, तो आज उन सबके लिए माफ़ी भी और शुक्रिया भी।</p>
+        <p>मेरी दुआ है कि तुम हमेशा हँसती रहो, और जितना तुमने सबके लिए किया है, उतना ही दुनिया तुम्हें लौटाए। जब कभी अकेला लगे, तो याद रखना कि तुम्हारा छोटा भाई बस एक फ़ोन कॉल की दूरी पर है।</p>
+        <p class="sign">हमेशा तुम्हारा,<span>तुम्हारा छोटा भाई</span></p>
+      </div>
+    </article>
+
+    <section class="sec">
+      <h2>तीन बातें जो तुमसे सीखीं</h2>
+      <p class="sub">किसी किताब में नहीं मिलतीं, बस तुम्हें देखकर आ गईं।</p>
+      <div class="lessons">
+        <div class="lesson"><h3>सब्र</h3><p>हर बात की जल्दी नहीं होती। जो ठहरकर चलता है, वो दूर तक पहुँचता है।</p></div>
+        <div class="lesson"><h3>ख़याल</h3><p>बड़ा होना मतलब सबसे पहले दूसरों का सोचना। ये तुमने कभी कहा नहीं, बस किया।</p></div>
+        <div class="lesson"><h3>मुस्कान</h3><p>मुश्किल दिन में भी हँस लेना हिम्मत का काम है। तुम में ये हिम्मत हमेशा दिखी।</p></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>जब कभी ज़रूरत लगे</h2>
+      <p class="sub">तीन बंद चिट्ठियाँ हैं। जिस दिन जैसा लगे, वो खोल लेना।</p>
+      <div class="notes">
+        <div class="note">
+          <button type="button" aria-expanded="false" aria-controls="n1"><span class="dot">♥</span><span><span class="when">जब उदास हो</span><small>छूकर खोलो</small></span></button>
+          <div class="body" id="n1" hidden>ये दिन भी निकल जाएगा, जैसे पहले के सब निकले हैं। रो लेना ठीक है, बस वहीं रुक मत जाना। और अगर बात करने का मन हो, तो मुझे सिर्फ़ "भाई" लिख देना। मैं समझ जाऊँगा।</div>
+        </div>
+        <div class="note">
+          <button type="button" aria-expanded="false" aria-controls="n2"><span class="dot">♥</span><span><span class="when">जब ख़ुश हो</span><small>छूकर खोलो</small></span></button>
+          <div class="body" id="n2" hidden>तो मुझे ज़रूर बताना। तुम्हारी ख़ुशी मेरे लिए भी त्योहार है। तुम्हारी हर जीत पर सबसे पहले और सबसे ज़ोर से ताली बजाने वाला मैं ही रहूँगा।</div>
+        </div>
+        <div class="note">
+          <button type="button" aria-expanded="false" aria-controls="n3"><span class="dot">♥</span><span><span class="when">जब मेरी याद आए</span><small>छूकर खोलो</small></span></button>
+          <div class="body" id="n3" hidden>तो थोड़ा हँस लेना कि मैं कितना परेशान करता था। और जान लेना कि मैं भी तुम्हें उतना ही याद करता हूँ जितना तुम मुझे, बस कहता कम हूँ।</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span>बस इतना ही कहना था। बाक़ी हमेशा की तरह, बिना कहे समझ लेना।</span>
+      <span>भाई की तरफ़ से, दिल से</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  var env = document.getElementById('env');
+  var hint = document.getElementById('hint');
+  var home = document.getElementById('home');
+  var page = document.getElementById('page');
+  var timer = null;
+
+  function showLetter() {
+    home.hidden = true;
+    page.hidden = false;
+    window.scrollTo(0, 0);
+  }
+  function showHome() {
+    page.hidden = true;
+    home.hidden = false;
+    env.classList.remove('open');
+    env.setAttribute('aria-pressed', 'false');
+    hint.textContent = 'लिफ़ाफ़े को छुओ';
+    window.scrollTo(0, 0);
+  }
+  function route() {
+    if (location.hash === '#chitthi') showLetter(); else showHome();
+  }
+  function openEnv() {
+    if (timer) return;
+    env.classList.add('open');
+    env.setAttribute('aria-pressed', 'true');
+    hint.textContent = 'चिट्ठी निकल रही है…';
+    timer = setTimeout(function () {
+      timer = null;
+      try { location.hash = 'chitthi'; } catch (e) {}
+      showLetter();
+    }, 1300);
+  }
+  env.addEventListener('click', openEnv);
+  env.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openEnv(); }
+  });
+  document.getElementById('openBtn').addEventListener('click', openEnv);
+  document.getElementById('back').addEventListener('click', function () {
+    try { location.hash = 'home'; } catch (e) {}
+    showHome();
+  });
+  window.addEventListener('hashchange', route);
+  route();
+
+  document.querySelectorAll('.note button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var body = document.getElementById(b.getAttribute('aria-controls'));
+      var show = body.hidden;
+      body.hidden = !show;
+      b.setAttribute('aria-expanded', show ? 'true' : 'false');
+      b.querySelector('small').textContent = show ? 'बंद करो' : 'छूकर खोलो';
+    });
+  });
+})();
+</script>
+
+</body></html>
